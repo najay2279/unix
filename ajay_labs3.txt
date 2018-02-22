@@ -1,0 +1,42 @@
+1.Display 3rd column of cseunix.csv without printing the header "CGPA" also sort the name
+
+$ cut -d , -f 4 cseunix.csv|grep -v "CGPA"
+$ cut -d , -f 2 cseunix.csv|grep -v "Name"|sort
+
+
+2.Display current time using date command
+
+$ date +%X
+
+
+3.Use uniq with all possible option 
+
+$ uniq -c cseunix.csv
+$ uniq -d cseunix.csv
+$ uniq -D cseunix.csv
+$ uniq -f cseunix.csv
+$ uniq -i cseunix.csv
+$ uniq -u cseunix.csv
+$ uniq -z cseunix.csv
+$ uniq -w cseunix.csv
+
+
+4.Print number of lines from ls -l option
+
+$ ls -l
+
+
+5.Display USN number from 7-14 along with other fields
+
+$ tail -n 7 cseunix.csv
+
+
+6.Replace field "Name" with "Student's name" in cseunix.csv
+
+$ sed -i 's/Name/Student_name/g' cseunix.csv
+$ cat cseunix.csv
+
+7.Sort only name field using position shell programming
+
+$ cut -d , -f 2 cseunix.csv|grep -v "Name"|sort +1 -2
+
