@@ -1,0 +1,22 @@
+echo Enter the a value 
+read a 
+echo  Enter the b value 
+read b 
+echo 1.Addition 
+echo 2.Subtraction 
+echo 3.Multiplication 
+echo 4.Division 
+echo 5.Modules 
+echo 6.increment
+echo Enter your choice 
+read var 
+case $var in 
+	           1)echo Addition       : $(expr $a + $b);; 
+		   2)echo Subtraction    : $(expr $a - $b);; 
+	           3)echo Multiplication : $(expr $a \* $b);; 
+         	   4)echo Division       : $(expr $a / $b);; 
+		   5)echo Modules        : $(expr $a % $b);;
+		   6)echo increment      : $(($a +1));;
+	           *)echo                : invalid
+		esac
+
