@@ -1,0 +1,19 @@
+
+2)Shell script to  prefix date infront of the file name and display:
+
+cdate=$(date +%Y-%m-%d)
+for file in file1 file2; do
+    mv "$file" "$cdate"_"$file"
+done
+
+
+3)Setting permission to the file/directory:
+
+You can change/set file permissions with the chmod command. In Unix, file permissions, which establish who may have different types of access to a file, are specified by both access classes and access types. Access classes are groups of users, and each may be assigned specific access types. The access classes are "user", "group", "other", and "all".
+
+
+For example, to add permission for everyone to read a file in the current directory named myfile, at the Unix prompt, enter:
+
+chmod a+r myfile
+
+The a stands for "all", the + for "add", and the r for "read".
