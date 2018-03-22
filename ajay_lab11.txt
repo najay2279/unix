@@ -1,0 +1,106 @@
+Awk command
+
+Syntax:
+
+awk options 'selection _criteria {action }' input-file > output-file
+
+Example:
+
+$cat > employee.txt 
+sam manager account 45000
+batista clerk account 25000
+rock manager sales 50000
+johnson manager account 47000
+shawn peon sales 15000
+david clerk sales 23000
+joseph peon sales 13000
+melvin director purchase 80000 
+
+1. Default behavior of Awk : By default Awk prints every line of data from the specified file.
+
+$ awk '{print}' employee.txt
+Output:
+
+sam manager account 45000
+batista clerk account 25000
+rock manager sales 50000
+johnson manager account 47000
+shawn peon sales 15000
+david clerk sales 23000
+joseph peon sales 13000
+melvin director purchase 80000 
+
+2. Print the lines which matches with the given pattern.
+
+$ awk '/manager/ {print}' employee.txt 
+Output:
+
+sam manager account 45000
+rock manager sales 50000
+johnson manager account 47000 
+
+3. Spliting a Line Into Fields : For each record i.e line, 
+the awk command splits the record delimited by whitespace character by default and stores it in the $n variables. If the line has 4 words, 
+it will be stored in $1, $2, $3 and $4 respectively. Also, $0 represents the whole line.
+
+$ awk '{print $1,$4}' employee.txt 
+Output:
+
+sam 45000
+batista 25000
+rock 50000
+johnson 47000
+
+Use of NR built-in variables (Display Line Number)
+
+$ awk '{print NR,$0}' employee.txt 
+Output:
+1 sam manager account 45000
+2 batista clerk account 25000
+3 rock manager sales 50000
+4 johnson manager account 47000
+5 shawn peon sales 15000
+6 david clerk sales 23000
+7 joseph peon sales 13000
+8 melvin director purchase 80000 
+
+In the above example, the awk command with NR prints all the lines along with the line number.
+
+Use of NF built-in variables (Display Last Field)
+
+$ awk '{print $1,$NF}' employee.txt 
+Output:
+
+sam 45000
+batista 25000
+rock 50000
+johnson 47000
+shawn 15000
+david 23000
+joseph 13000
+melvin 80000 
+
+Use of NR built-in variables (Display Line From 3 to 6)
+
+$ awk 'NR==3, NR==6 {print NR,$0}' employee.txt 
+Output:
+3 rock manager sales 50000
+4 johnson manager account 47000
+5 shawn peon sales 15000
+6 david clerk sales 23000
+
+
+
+Another use of NR built-in variables (Display Line From 1 to 6)
+
+$ awk 'NR==1, NR==6 {print NR,$0}' employee.txt 
+Output:
+1 sam manager account 45000
+2 batista clerk account 25000
+3 rock manager sales 50000
+4 johnson manager account 47000
+5 shawn peon sales 15000
+6 david clerk sales 23000
+
+
+
